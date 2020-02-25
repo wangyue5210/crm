@@ -5,6 +5,27 @@
 
 <mapper namespace="com.bjpowernode.crm.workbench.dao.ActivityDao">
 
+    <select id="getActivityListByName" resultType="Activity">
+
+        select
+
+        a.id,
+        a.name,
+        a.startDate,
+        a.endDate,
+        u.name as owner
+
+        from tbl_activity a
+        join tbl_user u
+        on a.owner=u.id
+
+        where a.name like '%' #{aname} '%'
+
+
+
+
+    </select>
+
 
     <select id="getActivityListByNameAndNotByClueId" resultType="Activity">
 
